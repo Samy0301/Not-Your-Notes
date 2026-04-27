@@ -14,7 +14,7 @@ ctk.set_default_color_theme("dark-blue")
 class NotesApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Purple Notes")
+        self.title("What Was I Saying???")
         self.geometry("900x600")
         self.minsize(700, 450)
         self.configure(fg_color=PURPLE_BG)

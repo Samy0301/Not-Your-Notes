@@ -14,7 +14,7 @@ class Sidebar(ctk.CTkFrame):
         self.grid_propagate(False)
 
         ctk.CTkLabel(
-            self, text="My Notes",
+            self, text="Main Character Notes",
             font=ctk.CTkFont(size=20, weight="bold"),
             text_color=PURPLE_TEXT
         ).pack(pady=(15, 10))

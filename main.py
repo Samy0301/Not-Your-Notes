@@ -17,7 +17,7 @@ class NotesApp(ctk.CTk):
         self.title("What Was I Saying???")
         self.geometry("900x600")
         self.minsize(700, 450)
-        self.configure(fg_color=PURPLE_BG)
+        self.configure(fg_color = purple_bg)
 
         self.storage = NotesStorage()
         self.editing_index = None
@@ -30,27 +30,18 @@ class NotesApp(ctk.CTk):
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        self.sidebar = Sidebar(
-            self, self.storage,
-            on_new=self.action_new,
-            on_edit=self.action_edit,
-            on_delete=self.action_delete
-        )
-        self.sidebar.grid(row=0, column=0, sticky="nsew",
-                        padx=(10, 5), pady=10)
+        self.sidebar = Sidebar(self, self.storage, 
+            on_new=self.action_new, on_edit=self.action_edit, on_delete=self.action_delete)
+        self.sidebar.grid(row=0, column=0, sticky="nsew", padx=(10, 5), pady=10)
 
-        self.right_panel = ctk.CTkFrame(self, fg_color=PURPLE_BG)
-        self.right_panel.grid(row=0, column=1, sticky="nsew",
-                            padx=(5, 10), pady=10)
+        self.right_panel = ctk.CTkFrame(self, fg_color=purple_bg)
+        self.right_panel.grid(row=0, column=1, sticky="nsew", padx=(5, 10), pady=10)
         self.right_panel.grid_columnconfigure(0, weight=1)
         self.right_panel.grid_rowconfigure(0, weight=1)
 
         self.welcome = WelcomePanel(self.right_panel)
-        self.editor = EditorPanel(
-            self.right_panel,
-            on_save=self.action_save,
-            on_cancel=self.action_cancel
-        )
+        self.editor = EditorPanel(self.right_panel, 
+            on_save = self.action_save, on_cancel = self.action_cancel)
 
     def show_welcome(self):
         self.editor.grid_remove()
@@ -89,8 +80,7 @@ class NotesApp(ctk.CTk):
         self.show_welcome()
 
     def action_delete(self, index):
-        if messagebox.askyesno("Delete",
-                            "Are you sure you want to delete this note?"):
+        if messagebox.askyesno("Delete", "Are you sure you want to delete this note?"):
             self.storage.delete(index)
             if self.editing_index == index:
                 self.show_welcome()

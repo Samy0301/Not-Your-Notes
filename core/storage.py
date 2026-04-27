@@ -1,7 +1,7 @@
 import json
 import os
 from datetime import datetime
-from config import NOTES_FILE
+from config import notes_file
 
 
 class NotesStorage:
@@ -10,15 +10,15 @@ class NotesStorage:
         self.load()
 
     def load(self):
-        if os.path.exists(NOTES_FILE):
+        if os.path.exists(notes_file):
             try:
-                with open(NOTES_FILE, "r", encoding="utf-8") as f:
+                with open(notes_file, "r", encoding="utf-8") as f:
                     self.notes = json.load(f)
             except:
                 self.notes = []
 
     def save(self):
-        with open(NOTES_FILE, "w", encoding="utf-8") as f:
+        with open(notes_file, "w", encoding="utf-8") as f:
             json.dump(self.notes, f, ensure_ascii=False, indent=2)
 
     def create(self, title, content):

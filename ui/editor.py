@@ -18,7 +18,7 @@ class EditorPanel(ctk.CTkFrame):
         self.date_label.pack(anchor="w", padx=10)
 
         self.textbox = ctk.CTkTextbox(self,
-            wrap = "word", font=ctk.CTkFont(family="Consolas", size=13), fg_color=purple_editor, text_color="#e0d5f0",
+            wrap = "word", font=ctk.CTkFont(family="Consolas", size=15), fg_color=purple_editor, text_color="#e0d5f0",
             corner_radius=8, border_color=purple_bright, border_width=1)
         self.textbox.pack(fill="both", expand=True, padx=10, pady=10)
 

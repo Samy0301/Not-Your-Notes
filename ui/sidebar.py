@@ -4,7 +4,7 @@ from config import *
 
 class Sidebar(ctk.CTkFrame):
     def __init__(self, parent, storage, on_new, on_edit, on_delete):
-        super().__init__(parent, width=670, fg_color=purple_frame)
+        super().__init__(parent, width=340, fg_color=purple_frame)
         self.storage = storage
         self.on_new = on_new
         self.on_edit = on_edit
@@ -21,8 +21,9 @@ class Sidebar(ctk.CTkFrame):
             text="+ New note", font=ctk.CTkFont(size=15), height=38, fg_color=purple_accent, hover_color=purple_hov_sel,
             command=self.on_new).pack(fill="x", padx=12, pady=(0, 10))
 
-        self.list_container = ctk.CTkScrollableFrame(self, fg_color=purple_frame)
-        self.list_container.pack(fill="both", expand=True, padx=60, pady=5)
+        # Sin padx horizontal para que la scrollbar quede en el borde
+        self.list_container = ctk.CTkScrollableFrame(self, fg_color=purple_frame, width=300)
+        self.list_container.pack(fill="both", expand=True, padx=0, pady=5)
 
         self.render()
 
@@ -39,8 +40,9 @@ class Sidebar(ctk.CTkFrame):
             return
 
         for i, note in enumerate(notes):
+            # El padding lateral va en cada nota, no en el contenedor
             frame = ctk.CTkFrame(self.list_container, fg_color=purple_frame)
-            frame.pack(fill="x", pady=15, padx=5)
+            frame.pack(fill="x", pady=15, padx=12)
 
             if i == self.active_note:
                 frame.configure(fg_color=purple_hov_sel, border_width=2, border_color=purple_bright)

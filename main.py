@@ -26,7 +26,7 @@ class NotesApp(ctk.CTk):
         self.show_welcome()
 
     def _build_ui(self):
-        self.grid_columnconfigure(0, weight=0)
+        self.grid_columnconfigure(0, weight=0, minsize=340)
         self.grid_columnconfigure(1, weight=1)
         self.grid_rowconfigure(0, weight=1)
 

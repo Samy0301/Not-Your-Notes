@@ -4,7 +4,7 @@ from config import *
 
 class Sidebar(ctk.CTkFrame):
     def __init__(self, parent, storage, on_new, on_edit, on_delete):
-        super().__init__(parent, width=340, fg_color=purple_frame)
+        super().__init__(parent, width=670, fg_color=purple_frame)
         self.storage = storage
         self.on_new = on_new
         self.on_edit = on_edit
